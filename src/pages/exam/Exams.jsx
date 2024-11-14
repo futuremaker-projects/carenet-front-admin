@@ -34,20 +34,15 @@ const Exams = () => {
         }
     }, [inView]);
 
-
     useEffect(() => {
         if (isFirstRender.current) {
             handleGetTotal();
             isFirstRender.current = false;
         } else {
             handleCallRefresh();
+            handleGetTotal();
         }
     }, [refresh]);
-
-    const handleGetTotal = useCallback(async () => {
-        const totalCount = await getTotalExamCount(search);
-        setCount(parseInt(totalCount));
-    }, [refresh])
 
     const handleCallExams = async () => {
         const response = await getExams(pageable, search);
@@ -59,9 +54,18 @@ const Exams = () => {
         setExams(prev => [...prev, ...response.content]);
     }
 
+    const handleGetTotal = useCallback(async () => {
+        const totalCount = await getTotalExamCount(search);
+        setCount(parseInt(totalCount));
+    }, [refresh]);
+
     const handleCallRefresh = async () => {
         const response = await getExams(initSlicePageable, search);
-        setPageable(initSlicePageable);
+        setPageable({
+            ...initSlicePageable,
+            page: 1,
+            last: response.last
+        });
         setExams([...response.content]);
 
         // 새로운 컨텐츠가 등록되었을 때 스크롤을 최상단으로 이동
@@ -123,7 +127,7 @@ const Exams = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">
+                            <td colSpan="7">
                                 <div className="hero bg-base-200 flex items-center justify-center h-[60vh]">
                                     <div className="hero-content text-accent text-center">
                                         <div className="max-w-md w-[50rem]">
@@ -155,7 +159,7 @@ const TopSideButtons = () => {
 
     return (
         <div className="inline-block float-right">
-            <button className="btn px-6 btn-sm normal-case btn-primary" onClick={() => openAddNewLeadModal()}>
+            <button type={"button"} className="btn px-6 btn-sm normal-case btn-primary" onClick={() => openAddNewLeadModal()}>
                 등록
             </button>
         </div>

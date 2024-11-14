@@ -1,9 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from "prop-types";
 
 const TextInput = ({type, placeholder, labelTitle, required, defaultValue, setState, target, keyDownMethod}) => {
-
-    const [value, setValue] = React.useState(defaultValue);
+    const [value, setValue] = useState(defaultValue);
 
     const handleChangeValue = (e) => {
         setState((prev) => ({ ...prev, [target]: e.target.value }));
@@ -11,9 +10,10 @@ const TextInput = ({type, placeholder, labelTitle, required, defaultValue, setSt
     };
 
     const handleOnKeyDown = (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            keyDownMethod();
+        if (e.nativeEvent.isComposing === false) {
+            if (e.key === "Enter") {
+                keyDownMethod();
+            }
         }
     }
 
@@ -30,8 +30,8 @@ const TextInput = ({type, placeholder, labelTitle, required, defaultValue, setSt
                             </div>
                             <input type={type} value={value}
                                    className="input input-bordered w-full" placeholder={placeholder}
-                                   onChange={(e) => handleChangeValue(e)}
-                                   onKeyDown={(e) => handleOnKeyDown(e)}
+                                   onChange={handleChangeValue}
+                                   onKeyDown={handleOnKeyDown}
                             />
                         </label>
                     </>

@@ -23,12 +23,13 @@ const Questions = () => {
     const [search, setSearch] = useState({name: ""});
     const [count, setCount] = useState(0);
 
-    const location = useLocation();
-    const navigate = useNavigate();
-    const {id} = useParams();
-
     const scrollContainerRef = useRef(null);    // 스크롤 컨테이너 ref 추가
     const isFirstRender = useRef(true);      // 첫 렌더링 여부를 추적
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const {id} = useParams();
 
     const refresh = useSelector(state => state.content.refresh);
 
@@ -44,12 +45,12 @@ const Questions = () => {
             isFirstRender.current = false;
         } else {
             handleCallRefresh();
+            handleGetTotal();
         }
     }, [refresh]);
 
     const handleCallData = async () => {
         const response = await getQuestionsByExamId(pageable, {examId: id});
-        console.log(response);
         setPageable((prev) => ({
             ...prev,
             page: response.last ? prev.page : prev.page + 1,
@@ -60,12 +61,16 @@ const Questions = () => {
 
     const handleGetTotal = useCallback(async () => {
         const totalCount = await getTotalQuestionsByExamId({examId: id});
-        setCount(totalCount);
+        setCount(parseInt(totalCount));
     }, [refresh]);
 
     const handleCallRefresh = async () => {
         const response = await getQuestionsByExamId(initSlicePageable, {examId: id});
-        setPageable(initSlicePageable);
+        setPageable({
+            ...initSlicePageable,
+            page: 1,
+            last: response.last
+        });
         setQuestions([...response.content]);
 
         // 새로운 컨텐츠가 등록되었을 때 스크롤을 최상단으로 이동
@@ -118,7 +123,7 @@ const Questions = () => {
                         ))
                     ) : (
                         <tr>
-                            <td colSpan="6">
+                            <td colSpan="7">
                                 <div className="hero bg-base-200 flex items-center justify-center h-[60vh]">
                                     <div className="hero-content text-accent text-center">
                                         <div className="max-w-md w-[50rem]">

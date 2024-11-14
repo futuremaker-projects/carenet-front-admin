@@ -12,7 +12,7 @@ const ExamCreateModal = () => {
     const [alert, setAlert] = useState(false);
     const dispatch = useDispatch()
 
-    const save = async () => {
+    const handleSave = async () => {
         if (!exam.name) {
             setAlert(true);
             return;
@@ -25,12 +25,12 @@ const ExamCreateModal = () => {
         }
     }
 
-    return(
+    return (
         <div className={"flex flex-col gap-4"}>
             <TextInput
                 defaultValue={exam.name} required
                 type="text" labelTitle="모의고사 명" setState={setExam} target={'name'}
-                keyDownMethod={save}
+                keyDownMethod={handleSave}
             />
             {alert &&
                 <div role="alert" className="alert -py-4">
@@ -39,7 +39,7 @@ const ExamCreateModal = () => {
                 </div>
             }
             <div className="modal-action">
-                <button type={'button'} className="btn btn-primary px-6" onClick={save}>저장</button>
+                <button type={'button'} className="btn btn-primary px-6" onClick={handleSave}>저장</button>
                 <button type={'button'} className="btn btn-ghost" onClick={() => dispatch(closeModal())}>취소</button>
             </div>
         </div>

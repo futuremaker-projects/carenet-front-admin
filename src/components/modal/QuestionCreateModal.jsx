@@ -15,7 +15,7 @@ const QuestionCreateModal = ({data}) => {
     const [alert, setAlert] = useState(false);
     const dispatch = useDispatch()
 
-    const save = async () => {
+    const handleSave = async () => {
         if (!question.name) {
             setAlert(true);
             return;
@@ -29,7 +29,7 @@ const QuestionCreateModal = ({data}) => {
                 <TextInput
                     defaultValue={question.name} required
                     type="text" labelTitle="문제 제목" setState={setQuestion} target={'name'}
-                    keyDownMethod={save}
+                    keyDownMethod={handleSave}
                 />
                 {alert &&
                     <div role="alert" className="alert -py-4">
@@ -38,7 +38,7 @@ const QuestionCreateModal = ({data}) => {
                     </div>
                 }
                 <div className="modal-action">
-                    <button type={'button'} className="btn btn-primary px-6" onClick={save}>저장</button>
+                    <button type={'button'} className="btn btn-primary px-6" onClick={handleSave}>저장</button>
                     <button type={'button'} className="btn btn-ghost" onClick={() => dispatch(closeModal())}>취소</button>
                 </div>
             </div>
