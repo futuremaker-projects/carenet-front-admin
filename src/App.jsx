@@ -6,9 +6,10 @@ import Main from "./pages/Main.jsx";
 import ExamLayout from "./pages/layout/ExamLayout.jsx";
 import EditorLayout from "./pages/layout/EditorLayout.jsx";
 import Question from "./pages/exam/question/Question.jsx";
-import CBT from "./pages/cbt/CBT.jsx";
+import Cbt from "./pages/cbt/Cbt.jsx";
 import Exams from "./pages/exam/Exams.jsx";
 import Questions from "./pages/exam/question/Questions.jsx";
+import Code from "./pages/code/Code.jsx";
 
 const router = createBrowserRouter([
     {
@@ -21,11 +22,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/cbt",
-        element: <ExamLayout/>,
+        element: <BaseLayout/>,
         errorElement: <NotFound/>,
         children: [
-            {index: true, element: <CBT />},
-            // { path: "/applies/:id", element: <Apply /> },
+            {index: true, element: <Cbt />},
+            { path: "/cbt/exams/:id", element: <Cbt /> },
             // { path: "/applies/create", element: <ApplyCreate /> },
         ],
     },
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
     //         // { path: "/applies/create", element: <ApplyCreate /> },
     //     ],
     // },
+    {
+        path: "/codes",
+        element: <ExamLayout/>,
+        errorElement: <NotFound/>,
+        children: [
+            {index: true, element: <Code />}
+        ]
+    },
     {
         path: "/edit",
         element: <EditorLayout/>,

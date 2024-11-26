@@ -7,11 +7,20 @@
     height: 22px;
 }
 
+.num-selection {
+    width: 18px;
+    height: 18px;
+}
+
 .exam-layout {
     position: relative;
     display: grid;
     grid-auto-columns: max-content auto;
     width: 100%;
+}
+
+.cbt-title {
+    font-size: 30px;
 }
 
 /*.container {*/

@@ -4,5 +4,9 @@
   "save": "저장",
   "IN_PROGRESS": "진행중",
   "DONE": "완료",
-  "defaultArticle": "본문을 작성해주세요."
+  "defaultArticle": "본문을 작성해주세요.",
+  "progressType": {
+    "IN_PROGRESS": "진행중",
+    "DONE": "완료"
+  }
 }
