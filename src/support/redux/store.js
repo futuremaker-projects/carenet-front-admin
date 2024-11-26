@@ -1,21 +1,33 @@
-import {configureStore} from '@reduxjs/toolkit'
+import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import modalReducer from "./modalSlice.js";
-import contentSlice from "./contentSlice.js";
+import contentReducer from "./contentSlice.js";
+import storage from "redux-persist/lib/storage";
+import {persistReducer} from "redux-persist";
 
 const combinedReducer = {
-  // header : headerSlice,
-  // rightDrawer : rightDrawerSlice,
-  modal : modalReducer,
-    content: contentSlice
-  // lead : leadsSlice
+    modal: modalReducer,
+    content: contentReducer
+
+    // header : headerSlice,
+    // rightDrawer : rightDrawerSlice,
+    // lead : leadsSlice
 }
 
-const store = configureStore({
-    reducer: combinedReducer
+let reducers = combineReducers({
+    modal: modalReducer,
+    content: contentReducer
 });
 
-// export default configureStore({
-//     reducer: combinedReducer
-// })
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['cbt']
+}
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+    reducer: persistedReducer
+});
 
 export default store;
