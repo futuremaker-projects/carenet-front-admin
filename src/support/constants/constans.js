@@ -9,8 +9,12 @@ export const MODAL_TYPES = Object.freeze({
 
 export const CONTENT_CATEGORY = Object.freeze({
     QUESTION : "QUESTION"
-})
+});
 
+export const PROGRESS_TYPE = Object.freeze({
+   IN_PROGRESS: "IN_PROGRESS",
+   DONE : "DONE",
+});
 
 export const RIGHT_DRAWER_TYPES = Object.freeze({
     NOTIFICATION : "NOTIFICATION",

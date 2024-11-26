@@ -1,4 +1,5 @@
 import React from "react";
+import {PROGRESS_TYPE} from "../support/constants/constans.js";
 
 export const exams =
     [
@@ -137,4 +138,13 @@ export const getDummyStatus = (index) => {
     else if (index % 5 === 2) return <div className="badge badge-secondary">Sold</div>
     else if (index % 5 === 3) return <div className="badge badge-accent">Need Followup</div>
     else return <div className="badge badge-ghost">Open</div>
+}
+
+export const getProgressTag = (progressType, translated) => {
+    switch (progressType) {
+        case PROGRESS_TYPE.IN_PROGRESS:
+            return <div className="badge badge-primary">{translated}</div>
+        case PROGRESS_TYPE.DONE:
+            return <div className="badge badge-accent">{translated}</div>
+    }
 }

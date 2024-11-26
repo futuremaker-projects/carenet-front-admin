@@ -7,9 +7,10 @@ import {MODAL_TYPES} from "../../support/constants/constans.js";
 import DocumentIcon from "@heroicons/react/24/outline/DocumentIcon";
 import {useInView} from "react-intersection-observer";
 import {getExams, getTotalExamCount} from "../../service/examService.js";
-import {getDummyStatus} from "../../dummy/dummy.jsx";
 import {useNavigate} from "react-router-dom";
 import {initSlicePageable} from "../../service/Utils.js";
+import {useTranslation} from "react-i18next";
+import {getProgressTag} from "../../dummy/dummy.jsx";
 
 /**
  * 모의고사 목록페이지
@@ -25,6 +26,7 @@ const Exams = () => {
     const isFirstRender = useRef(true); // 첫 렌더링 여부를 추적
 
     const navigate = useNavigate();
+    const {t} = useTranslation();
 
     const refresh = useSelector(state => state.content.refresh);
 
@@ -109,7 +111,7 @@ const Exams = () => {
                                     <div className={`cursor-pointer`}>{item.name}</div>
                                 </td>
                                 <td>
-                                    {getDummyStatus(index)}
+                                    {getProgressTag(item.progressType, t(`progressType.${item.progressType}`))}
                                 </td>
                                 <td>{item.createUser.username}</td>
                                 <td>{item.createdAt}</td>
