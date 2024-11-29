@@ -6,17 +6,18 @@ import {useDispatch, useSelector} from "react-redux";
 const CbtQuestion = ({questions}) => {
     const [shownQuestions, setShownQuestions] = useState([]);
 
-    const page = useSelector(state => state.cbt.page);
+    const pageNumber = useSelector(state => state.cbt.pageNumber);
+    const pageSize = useSelector(state => state.cbt.pageSize);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         handleSetShowQuestion();
-    }, [page]);
+    }, [pageNumber, pageSize]);
 
     const handleSetShowQuestion = () => {
         // 2단 보기시 page + 1 부분의 1 변경해야 함
-        const chosenQuestions = questions.slice(page, page + 1)
+        const chosenQuestions = questions.slice(pageNumber, pageNumber + pageSize)
         setShownQuestions([...chosenQuestions])
     }
 

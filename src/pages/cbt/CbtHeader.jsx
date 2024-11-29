@@ -2,9 +2,15 @@ import React from 'react';
 import {Clock, DoubleView, SingleView} from "../../assets/index.js";
 import CountDown from "./CountDown.jsx";
 import {Shifter, TextShifter} from "./styled/cbt.jsx";
+import {useDispatch} from "react-redux";
+import {setPageSize} from "../../support/redux/cbtSlice.js";
 
 const CbtHeader = () => {
+    const dispatch = useDispatch();
 
+    const handleChangeViewMode = (pageSize) => {
+        dispatch(setPageSize(pageSize));
+    }
 
     return (
         <div className="bg-fuchsia-600 h-[10vh] flex">
@@ -39,11 +45,11 @@ const CbtHeader = () => {
                         <div>화면</div>
                         <div>보기</div>
                     </Shifter>
-                    <Shifter className={'bg-emerald-300'}>
+                    <Shifter className={'bg-emerald-300 cursor-pointer'} onClick={() => handleChangeViewMode(1)}>
                         <div><SingleView className={'w-9 h-9'}/></div>
                         <div>1단 보기</div>
                     </Shifter>
-                    <Shifter className={'bg-emerald-600'}>
+                    <Shifter className={'bg-emerald-600 cursor-pointer'} onClick={() => handleChangeViewMode(2)}>
                         <div><DoubleView className={'w-9 h-9'}/></div>
                         <div>2단 보기</div>
                     </Shifter>

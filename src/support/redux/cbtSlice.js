@@ -3,17 +3,22 @@ import {createSlice} from "@reduxjs/toolkit";
 const cbtSlice = createSlice({
     name: 'cbt',
     initialState: {
-        page: 0
+        pageNumber: 0,
+        pageSize: 1
     },
     reducers: {
-        setPage: (state, action) => {
-            state.page = action.payload;
+        setPageNumber: (state, action) => {
+            state.pageNumber = action.payload;
+        },
+        setPageSize: (state, action) => {
+            state.pageSize = action.payload;
         }
     }
 })
 
 export const {
-    setPage
+    setPageNumber,
+    setPageSize,
 } = cbtSlice.actions;
 
 export default cbtSlice.reducer;
