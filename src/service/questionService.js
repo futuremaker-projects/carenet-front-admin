@@ -1,7 +1,7 @@
 import {api} from "./instance.js";
 import store from "../support/redux/store.js";
-import {isLoading, refreshContent} from "../support/redux/contentSlice.js";
-import {apiRequest, getQueryString, handleErrorResponse} from "./Utils.js";
+import {refreshContent} from "../support/redux/contentSlice.js";
+import {apiRequest, getQueryString} from "./Utils.js";
 import {toast} from "sonner";
 import {closeModal} from "../support/redux/modalSlice.js";
 

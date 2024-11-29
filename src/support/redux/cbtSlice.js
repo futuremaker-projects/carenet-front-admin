@@ -1,13 +1,20 @@
 import {createSlice} from "@reduxjs/toolkit";
-import storage from "redux-persist/lib/storage"
 
 const cbtSlice = createSlice({
     name: 'cbt',
-    initialState: {},
+    initialState: {
+        page: 0
+    },
     reducers: {
-
+        setPage: (state, action) => {
+            state.page = action.payload;
+        }
     }
 })
+
+export const {
+    setPage
+} = cbtSlice.actions;
 
 export default cbtSlice.reducer;
 

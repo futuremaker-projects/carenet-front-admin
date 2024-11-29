@@ -2,12 +2,9 @@ import {createRoot} from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {Provider} from "react-redux";
-import store from './support/redux/store'
 import "./support/config/locales/I18n";
-import {persistStore} from "redux-persist";
 import {PersistGate} from "redux-persist/integration/react";
-
-const persistor = persistStore(store);
+import store, {persistor} from './support/redux/store'
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>

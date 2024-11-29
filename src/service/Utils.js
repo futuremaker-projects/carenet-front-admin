@@ -9,15 +9,6 @@ export const getQueryString = (pageable) => {
         .join('&');
 }
 
-export const handleErrorResponse = (error) => {
-    if (error instanceof AxiosError) {
-        const data = error.response.data;
-        const status = error.response.status;
-        return {data, status};
-    }
-    return error;
-}
-
 export const initSlicePageable = {
     size: 15,
     page: 0,
