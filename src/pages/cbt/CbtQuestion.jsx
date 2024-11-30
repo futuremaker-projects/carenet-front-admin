@@ -48,8 +48,6 @@ CbtQuestion.propTypes = {
 }
 
 const CbtQuestionSection = ({question, isSingle}) => {
-    console.log(isSingle)
-
     const handleGetOrder = (selectionId) => {
         switch (selectionId) {
             case 1: return <One className={"num-selection"}/>;

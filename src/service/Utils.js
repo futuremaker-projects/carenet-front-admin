@@ -21,7 +21,7 @@ export const apiRequest = async (fetchMethod, success) => {
         store.dispatch(isLoading(true));
         const response = await fetchMethod();
         if (response && response.status === 200) {
-            if (success) success();
+            if (success) success(response.data.result);
             return response.data.result;
         } else {
             // 200 외의 http status

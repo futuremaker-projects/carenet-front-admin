@@ -5,20 +5,27 @@ import CbtQuestion from "./CbtQuestion.jsx";
 import PropTypes from "prop-types";
 import {getQuestions} from "../../service/cbtService.js";
 import CbtFooter from "./CbtFooter.jsx";
+import {useDispatch} from "react-redux";
+import {setTotalPages} from "../../support/redux/cbtSlice.js";
 
-const Cbt = ({examId}) => {
+const Cbt = ({examId = 21}) => {
     const [questions, setQuestions] = useState([])
     const [questionCount, setQuestionCount] = useState(0);
     const [answers, setAnswers] = useState([]);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         handleCallData();
     }, []);
 
     const handleCallData = async () => {
-        const data = await getQuestions(21);
-        setQuestions([...data]);
-        setQuestionCount(data.length);
+        await getQuestions(examId, (data) => {
+            setQuestions([...data]);
+            setQuestionCount(data.length);
+            dispatch(setTotalPages(data.length));
+        });
+
     }
 
     // 선택된 문제의 id or index를 가져오면 될듯?
