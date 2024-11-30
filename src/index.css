@@ -7,6 +7,11 @@
     height: 22px;
 }
 
+.num-checked-selection {
+    width: 20px;
+    height: 20px;
+}
+
 .num-selection {
     width: 18px;
     height: 18px;

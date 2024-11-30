@@ -6,15 +6,23 @@ const cbtSlice = createSlice({
         pageNumber: 0,
         pageSize: 1,
         totalPages: 0,
+        answers: {}
     },
     reducers: {
-        setPageNumber: (state, action) => {
+        setNextPage: (state, action) => {
             const pageNumber = state.pageNumber;
-            const result = pageNumber + action.payload;
+            const result = pageNumber + (action.payload + (state.pageSize - 1));
+            if (result > state.totalPages - 1) {
+                state.pageNumber = state.totalPages - 1;
+            } else {
+                state.pageNumber = result;
+            }
+        },
+        setPrevPage: (state, action) => {
+            const pageNumber = state.pageNumber;
+            const result = pageNumber - (action.payload + (state.pageSize - 1));
             if (result < 0) {
                 state.pageNumber = 0;
-            } else if (result > state.totalPages - 1) {
-                state.pageNumber = state.totalPages - 1;
             } else {
                 state.pageNumber = result;
             }
@@ -24,14 +32,19 @@ const cbtSlice = createSlice({
         },
         setTotalPages: (state, action) => {
             state.totalPages = action.payload;
+        },
+        setAnswer: (state, action) => {
+            state.answers[action.payload.questionId] = action.payload.answer;
         }
     }
 })
 
 export const {
-    setPageNumber,
+    setNextPage,
+    setPrevPage,
     setPageSize,
-    setTotalPages
+    setTotalPages,
+    setAnswer,
 } = cbtSlice.actions;
 
 export default cbtSlice.reducer;
