@@ -21,7 +21,7 @@ const CbtHeader = () => {
             <div className={'bg-amber-200 w-[25vw] h-full text-center flex items-center justify-center cbt-title'}>
                 모의고사명
             </div>
-            <div className={'bg-amber-300 w-[35vw] h-full flex'}>
+            <div className={'bg-amber-300 w-[40vw] h-full flex'}>
                 <div className={'w-full flex justify-center m-3'}>
                     <Shifter className={'bg-blue-300'}>
                         <div>글자</div>
@@ -55,7 +55,7 @@ const CbtHeader = () => {
                     </Shifter>
                 </div>
             </div>
-            <div className={'bg-amber-500 w-[20vw] h-full flex align-center gap-4'}>
+            <div className={'bg-amber-500 w-[15vw] h-full flex align-center gap-4'}>
                 <Clock className={'w-14 h-full'}/>
                 <div className={'flex flex-col justify-center h-full'}>
                     <div>제한시간: 105분</div>

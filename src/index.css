@@ -3,32 +3,11 @@
 @tailwind utilities;
 
 .num {
-    width: 22px;
-    height: 22px;
-}
-
-.num-checked-selection {
-    width: 20px;
-    height: 20px;
-}
-
-.num-selection {
-    width: 18px;
-    height: 18px;
-}
-
-.exam-layout {
-    position: relative;
-    display: grid;
-    grid-auto-columns: max-content auto;
-    width: 100%;
+    width: 27px;
+    height: 27px;
 }
 
 .cbt-title {
     font-size: 30px;
 }
 
-/*.container {*/
-/*    height: calc(var(--vh, 1vh) * 100);*/
-/*    overflow: hidden;*/
-/*}*/
