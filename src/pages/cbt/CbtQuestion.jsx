@@ -1,16 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {
-    CheckedFive,
-    CheckedFour,
-    CheckedOne,
-    CheckedThree,
-    CheckedTwo,
-    Five,
-    Four,
-    One,
-    Three,
-    Two
-} from "../../assets/index.js";
 import PropTypes from "prop-types";
 import {useDispatch, useSelector} from "react-redux";
 import {setAnswer} from "../../support/redux/cbtSlice.js";
@@ -45,7 +33,7 @@ const CbtQuestion = ({questions}) => {
     return (
         <>
             {shownQuestions.length > 0 &&
-                <div className={'flex flex-col h-[80vh] w-full'}>
+                <div className={'flex flex-col h-[82vh] w-full'}>
                     <div className={'flex flex-col justify-end items-end h-[3rem] bg-emerald-300'}>
                         <div>풀이한 문항수/총 문항수</div>
                         <div><span>{handleGetTotalSolved()}</span>/<span>{totalPages}</span></div>

@@ -10,6 +10,7 @@ import Cbt from "./pages/cbt/Cbt.jsx";
 import Exams from "./pages/exam/Exams.jsx";
 import Questions from "./pages/exam/question/Questions.jsx";
 import Code from "./pages/code/Code.jsx";
+import CbtAwait from "./pages/cbt/CbtAwait.jsx";
 
 const router = createBrowserRouter([
     {
@@ -25,9 +26,9 @@ const router = createBrowserRouter([
         element: <BaseLayout/>,
         errorElement: <NotFound/>,
         children: [
-            {index: true, element: <Cbt />},
+            { index: true, element: <Cbt /> },
             { path: "/cbt/exams/:id", element: <Cbt /> },
-            // { path: "/applies/create", element: <ApplyCreate /> },
+            { path: "/cbt/exams/:id/await", element: <CbtAwait /> },
         ],
     },
     {
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
         element: <ExamLayout/>,
         errorElement: <NotFound/>,
         children: [
-            {index: true, element: <Exams />},
+            { index: true, element: <Exams /> },
             { path: "/exams/:id/questions", element: <Questions /> },
             { path: "/exams/:id/questions/:id", element: <Question /> },
         ],
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
         element: <ExamLayout/>,
         errorElement: <NotFound/>,
         children: [
-            {index: true, element: <Code />}
+            { index: true, element: <Code /> }
         ]
     },
     {
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
         element: <EditorLayout/>,
         errorElement: <NotFound/>,
         children: [
-            {index: true, element: <Question/>}
+            { index: true, element: <Question/> }
         ]
     }
 ]);

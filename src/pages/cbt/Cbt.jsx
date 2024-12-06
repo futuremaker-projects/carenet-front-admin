@@ -7,35 +7,32 @@ import {getQuestions} from "../../service/cbtService.js";
 import CbtFooter from "./CbtFooter.jsx";
 import {useDispatch} from "react-redux";
 import {setTotalPages} from "../../support/redux/cbtSlice.js";
+import {useParams} from "react-router-dom";
 
-const Cbt = ({examId = 21}) => {
-    const [questions, setQuestions] = useState([])
-    const [questionCount, setQuestionCount] = useState(0);
+const Cbt = () => {
+    const [questions, setQuestions] = useState([]);
 
     const dispatch = useDispatch();
+    const params = useParams();
 
     useEffect(() => {
         handleCallData();
     }, []);
 
     const handleCallData = async () => {
-        await getQuestions(examId, (data) => {
+        await getQuestions(params.id, (data) => {
             setQuestions([...data]);
-            setQuestionCount(data.length);
             dispatch(setTotalPages(data.length));
         });
     }
 
     return (
-        <div className="h-[100vh]">
-            <CbtHeader />
-            <div className="flex h-[90vh]">
-                <div className={'flex flex-col w-[85vw]'}>
-                    {questions.length > 0 && <CbtQuestion questions={questions}/>}
-                    <CbtFooter />
-                </div>
-                <CbtAnswers questions={questions}/>
+        <div className="flex h-[90vh]">
+            <div className={'flex flex-col w-[85vw]'}>
+                {questions.length > 0 && <CbtQuestion questions={questions}/>}
+                <CbtFooter />
             </div>
+            <CbtAnswers questions={questions}/>
         </div>
     );
 };

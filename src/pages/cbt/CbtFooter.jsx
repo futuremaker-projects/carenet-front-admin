@@ -13,7 +13,7 @@ const CbtFooter = () => {
     }
 
     return (
-        <div className={"bg-blue-300 h-[10vh]"}>
+        <div className={"bg-blue-300 h-[8vh]"}>
             <div className={'flex justify-center gap-2 pt-4'}>
                 <button className="btn btn-outline" onClick={handleChangePagePrev}>이전</button>
                 <button className="btn btn-outline" onClick={handleChangePageNext}>다음</button>
