@@ -18,7 +18,7 @@ const CbtResultModal = ({data}) => {
 
     const handleMoveSteadyPage = () => {
         close();
-        navigate(`/cbt/exams/${data}/result`);
+        navigate(`/cbt/exams/${data}/await`);
     }
 
     return (

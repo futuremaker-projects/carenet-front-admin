@@ -7,10 +7,7 @@ import {handleGetOrder} from "./CbtCommon.jsx";
 const CbtQuestion = ({questions}) => {
     const [shownQuestions, setShownQuestions] = useState([]);
 
-    const pageNumber = useSelector(state => state.cbt.pageNumber);
-    const pageSize = useSelector(state => state.cbt.pageSize);
-    const totalPages = useSelector(state => state.cbt.totalPages);
-    const answers = useSelector(state => state.cbt.answers);
+    const {pageNumber, pageSize, totalPages, answers} = useSelector(state => state.cbt);
 
     useEffect(() => {
         handleSetShowQuestion();

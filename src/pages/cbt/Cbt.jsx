@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import {getQuestions} from "../../service/cbtService.js";
 import CbtFooter from "./CbtFooter.jsx";
 import {useDispatch} from "react-redux";
-import {setTotalPages} from "../../support/redux/cbtSlice.js";
+import {setTotalPages, showCbtModes} from "../../support/redux/cbtSlice.js";
 import {useParams} from "react-router-dom";
 
 const Cbt = () => {
@@ -17,6 +17,7 @@ const Cbt = () => {
 
     useEffect(() => {
         handleCallData();
+        dispatch(showCbtModes(true));
     }, []);
 
     const handleCallData = async () => {

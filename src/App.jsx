@@ -1,6 +1,6 @@
 import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import BaseLayout from "./pages/layout/BaseLayout.jsx";
+import CbtLayout from "./pages/layout/CbtLayout.jsx";
 import NotFound from "./pages/error/NotFound.jsx";
 import Main from "./pages/Main.jsx";
 import ExamLayout from "./pages/layout/ExamLayout.jsx";
@@ -11,6 +11,7 @@ import Exams from "./pages/exam/Exams.jsx";
 import Questions from "./pages/exam/question/Questions.jsx";
 import Code from "./pages/code/Code.jsx";
 import CbtAwait from "./pages/cbt/CbtAwait.jsx";
+import BaseLayout from "./pages/layout/BaseLayout.jsx";
 
 const router = createBrowserRouter([
     {
@@ -23,11 +24,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/cbt",
-        element: <BaseLayout/>,
+        element: <CbtLayout/>,
         errorElement: <NotFound/>,
         children: [
             { index: true, element: <Cbt /> },
-            { path: "/cbt/exams/:id", element: <Cbt /> },
+            { path: "/cbt/exams/:id/questions", element: <Cbt /> },
             { path: "/cbt/exams/:id/await", element: <CbtAwait /> },
         ],
     },

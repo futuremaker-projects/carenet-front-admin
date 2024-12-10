@@ -1,15 +1,15 @@
 @font-face {
-    font-family: 'NanumGothicCoding';
+    font-family: 'NotoSansKR-Regular';
     font-weight: normal;
     font-display: swap;
-    src: url('./assets/fonts/NanumGothicCoding-Regular.ttf') format('truetype');
+    src: url('./assets/fonts/NotoSansKR-REgular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'NanumGothicCoding-Bold';
-    font-weight: 700;
+    font-family: 'NotoSansKR-Medium';
+    font-weight: normal;
     font-display: swap;
-    src: url('./assets/fonts/NanumGothicCoding-Bold.ttf') format('truetype');
+    src: url('./assets/fonts/NotoSansKR-Medium.ttf') format('truetype');
 }
 
 @font-face {
@@ -26,20 +26,6 @@
     src: url('./assets/fonts/NotoSansKR-Bold.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'NotoSansKR-Medium';
-    font-weight: normal;
-    font-display: swap;
-    src: url('./assets/fonts/NotoSansKR-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'NotoSansKR-Regular';
-    font-weight: normal;
-    font-display: swap;
-    src: url('./assets/fonts/NotoSansKR-REgular.ttf') format('truetype');
-}
-
 html, body, #root {
     margin: 0;
     padding: 0;
@@ -48,7 +34,7 @@ html, body, #root {
 }
 
 body {
-    font-family: 'NotoSansKR-Medium';
+    font-family: 'NotoSansKR-Regular';
     font-size: 18px;
 }
 

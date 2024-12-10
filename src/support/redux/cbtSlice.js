@@ -6,7 +6,9 @@ const cbtSlice = createSlice({
         pageNumber: 0,
         pageSize: 1,
         totalPages: 0,
-        answers: {}
+        answers: {},
+        showSizeMode: true,
+        showViewMode: true,
     },
     reducers: {
         setNextPage: (state, action) => {
@@ -35,6 +37,10 @@ const cbtSlice = createSlice({
         },
         setAnswer: (state, action) => {
             state.answers[action.payload.questionId] = action.payload.answer;
+        },
+        showCbtModes: (state, action) => {
+            state.showSizeMode = action.payload;
+            state.showViewMode = action.payload;
         }
     }
 })
@@ -45,6 +51,7 @@ export const {
     setPageSize,
     setTotalPages,
     setAnswer,
+    showCbtModes,
 } = cbtSlice.actions;
 
 export default cbtSlice.reducer;
