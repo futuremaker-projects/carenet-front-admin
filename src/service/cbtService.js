@@ -7,9 +7,7 @@ const getQuestions = async (examId, success) => {
 }
 
 const submitCbtResult = async (data, success) => {
-    return apiRequest(
-        () => api.post(`/cbt/exams/submit`)
-    )
+    return apiRequest(() => api.post(`/cbt/exams/submit`, data), success);
 }
 
 export {

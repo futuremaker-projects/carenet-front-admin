@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
-import {showCbtModes} from "../../support/redux/cbtSlice.js";
+import {resetAnswers, showCbtModes} from "../../support/redux/cbtSlice.js";
 import {submitCbtResult} from "../../service/cbtService.js";
 
 const CbtAwait = () => {
@@ -28,7 +28,8 @@ const CbtAwait = () => {
         }
         await submitCbtResult(data, () => {
             // params.id 없으면?
-            navigate(`/cbt/exams/${parseInt(params.id)}/result`);
+            navigate(`/cbt/exams/${parseInt(params.id)}/evaluation`);
+            dispatch(resetAnswers());
         });
     }
 

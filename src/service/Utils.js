@@ -31,6 +31,7 @@ export const apiRequest = async (fetchMethod, success) => {
         if (error instanceof AxiosError) {
             const status = error.response.status;
             const data = error.response.data;
+            toast.error("서버에러");
             return { status, data };
         }
     } finally {

@@ -38,6 +38,9 @@ const cbtSlice = createSlice({
         setAnswer: (state, action) => {
             state.answers[action.payload.questionId] = action.payload.answer;
         },
+        resetAnswers: (state, action) => {
+            state.answers = {};
+        },
         showCbtModes: (state, action) => {
             state.showSizeMode = action.payload;
             state.showViewMode = action.payload;
@@ -51,6 +54,7 @@ export const {
     setPageSize,
     setTotalPages,
     setAnswer,
+    resetAnswers,
     showCbtModes,
 } = cbtSlice.actions;
 
