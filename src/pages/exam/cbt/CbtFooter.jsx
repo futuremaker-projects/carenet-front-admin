@@ -1,6 +1,6 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
-import {setNextPage, setPrevPage} from "../../support/redux/cbtSlice.js";
+import {setNextPage, setPrevPage} from "../../../support/redux/cbtSlice.js";
 
 const CbtFooter = () => {
     const dispatch = useDispatch();

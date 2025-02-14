@@ -8,7 +8,7 @@ import {
     One,
     Three,
     Two
-} from "../../assets/index.js";
+} from "../../../assets/index.js";
 import React from "react";
 
 export const handleGetOrder = (selections, selectionId) => {

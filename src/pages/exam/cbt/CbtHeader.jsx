@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import {Clock, DoubleView, SingleView} from "../../assets/index.js";
+import {Clock, DoubleView, SingleView} from "../../../assets/index.js";
 import CountDown from "./CountDown.jsx";
 import {Shifter, TextShifter} from "./styled/cbt.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {setPageSize, showCbtModes} from "../../support/redux/cbtSlice.js";
+import {setPageSize, showCbtModes} from "../../../support/redux/cbtSlice.js";
 
 const CbtHeader = () => {
     const dispatch = useDispatch();

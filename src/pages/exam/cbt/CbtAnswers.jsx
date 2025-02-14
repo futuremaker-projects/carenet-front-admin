@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import {useDispatch, useSelector} from "react-redux";
-import {setAnswer} from "../../support/redux/cbtSlice.js";
+import {setAnswer} from "../../../support/redux/cbtSlice.js";
 import {handleGetOrder} from "./CbtCommon.jsx";
 import {ArrowUpOnSquareIcon} from "@heroicons/react/24/outline/index.js";
-import {openModal} from "../../support/redux/modalSlice.js";
-import {MODAL_TYPES} from "../../support/constants/constans.js";
+import {openModal} from "../../../support/redux/modalSlice.js";
+import {MODAL_TYPES} from "../../../support/constants/constans.js";
 import {useParams} from "react-router-dom";
 
 const CbtAnswers = ({questions}) => {

@@ -5,14 +5,14 @@ import NotFound from "./pages/error/NotFound.jsx";
 import Main from "./pages/Main.jsx";
 import ExamLayout from "./pages/layout/ExamLayout.jsx";
 import EditorLayout from "./pages/layout/EditorLayout.jsx";
-import Question from "./pages/exam/question/Question.jsx";
-import Cbt from "./pages/cbt/Cbt.jsx";
-import Exams from "./pages/exam/Exams.jsx";
-import Questions from "./pages/exam/question/Questions.jsx";
-import Code from "./pages/code/Code.jsx";
-import CbtAwait from "./pages/cbt/CbtAwait.jsx";
+import Question from "./pages/admin/exam/question/Question.jsx";
+import Cbt from "./pages/exam/cbt/Cbt.jsx";
+import Exams from "./pages/admin/exam/Exams.jsx";
+import Questions from "./pages/admin/exam/question/Questions.jsx";
+import Code from "./pages/admin/code/Code.jsx";
+import CbtAwait from "./pages/exam/cbt/CbtAwait.jsx";
 import BaseLayout from "./pages/layout/BaseLayout.jsx";
-import CbtEvaluation from "./pages/cbt/CbtEvaluation.jsx";
+import CbtEvaluation from "./pages/exam/cbt/CbtEvaluation.jsx";
 
 const router = createBrowserRouter([
     {

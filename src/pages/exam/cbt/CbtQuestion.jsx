@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from "prop-types";
 import {useDispatch, useSelector} from "react-redux";
-import {setAnswer} from "../../support/redux/cbtSlice.js";
+import {setAnswer} from "../../../support/redux/cbtSlice.js";
 import {handleGetOrder} from "./CbtCommon.jsx";
 
 const CbtQuestion = ({questions}) => {

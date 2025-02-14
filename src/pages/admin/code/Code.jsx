@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import TitleCard from "../../components/cards/TitleCard.jsx";
+import TitleCard from "../../../components/cards/TitleCard.jsx";
 
 const Code = ({title, children}) => {
 

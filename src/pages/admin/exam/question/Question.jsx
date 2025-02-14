@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import {getQuestion, updateArticle} from "../../../service/questionService.js";
-import CustomEditor from "../../../components/CustomEditor.jsx";
+import {getQuestion, updateArticle} from "../../../../service/questionService.js";
+import CustomEditor from "../../../../components/CustomEditor.jsx";
 import {ArrowUturnLeftIcon} from "@heroicons/react/24/outline/index.js";
-import {updateSelection} from "../../../service/selectionService.js";
+import {updateSelection} from "../../../../service/selectionService.js";
 import DOMPurify from 'isomorphic-dompurify';
 
 /**

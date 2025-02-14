@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate, useParams} from "react-router-dom";
-import {resetAnswers, showCbtModes} from "../../support/redux/cbtSlice.js";
-import {submitCbtResult} from "../../service/cbtService.js";
+import {resetAnswers, showCbtModes} from "../../../support/redux/cbtSlice.js";
+import {submitCbtResult} from "../../../service/cbtService.js";
 
 const CbtAwait = () => {
     const answers = useSelector(state => state.cbt.answers);

@@ -1,16 +1,16 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import TitleCard from "../../components/cards/TitleCard.jsx";
+import TitleCard from "../../../components/cards/TitleCard.jsx";
 import {PencilIcon, TrashIcon} from "@heroicons/react/24/outline/index.js";
 import {useDispatch, useSelector} from "react-redux";
-import {openModal} from "../../support/redux/modalSlice.js";
-import {MODAL_TYPES} from "../../support/constants/constans.js";
+import {openModal} from "../../../support/redux/modalSlice.js";
+import {MODAL_TYPES} from "../../../support/constants/constans.js";
 import DocumentIcon from "@heroicons/react/24/outline/DocumentIcon";
 import {useInView} from "react-intersection-observer";
-import {getExams, getTotalExamCount} from "../../service/examService.js";
+import {getExams, getTotalExamCount} from "../../../service/examService.js";
 import {useNavigate} from "react-router-dom";
-import {initSlicePageable} from "../../service/Utils.js";
+import {initSlicePageable} from "../../../service/Utils.js";
 import {useTranslation} from "react-i18next";
-import {getProgressTag} from "../../dummy/dummy.jsx";
+import {getProgressTag} from "../../../dummy/dummy.jsx";
 
 /**
  * 모의고사 목록페이지

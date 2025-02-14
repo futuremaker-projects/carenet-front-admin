@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import CbtAnswers from "./CbtAnswers.jsx";
-import CbtHeader from "./CbtHeader.jsx";
 import CbtQuestion from "./CbtQuestion.jsx";
 import PropTypes from "prop-types";
-import {getQuestions} from "../../service/cbtService.js";
+import {getQuestions} from "../../../service/cbtService.js";
 import CbtFooter from "./CbtFooter.jsx";
 import {useDispatch} from "react-redux";
-import {setTotalPages, showCbtModes} from "../../support/redux/cbtSlice.js";
+import {setTotalPages, showCbtModes} from "../../../support/redux/cbtSlice.js";
 import {useParams} from "react-router-dom";
 
-const Cbt = () => {
+const Cbt = ({examId = 21}) => {
     const [questions, setQuestions] = useState([]);
 
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const Cbt = () => {
     }, []);
 
     const handleCallData = async () => {
-        await getQuestions(params.id, (data) => {
+        await getQuestions(examId, (data) => {
             setQuestions([...data]);
             dispatch(setTotalPages(data.length));
         });

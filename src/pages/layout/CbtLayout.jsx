@@ -3,7 +3,7 @@ import {Outlet} from "react-router-dom";
 import ModalLayout from "../../components/modal/ModalLayout.jsx";
 import {Toaster} from "sonner";
 import Loading from "../../components/Loading.jsx";
-import CbtHeader from "../cbt/CbtHeader.jsx";
+import CbtHeader from "../exam/cbt/CbtHeader.jsx";
 
 const CbtLayout = () => {
     return (
