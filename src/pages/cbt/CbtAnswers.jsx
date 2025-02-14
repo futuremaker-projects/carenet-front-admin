@@ -21,16 +21,21 @@ const CbtAnswers = ({questions}) => {
             <div className="bg-emerald-600 h-[5vh] text-xl text-center leading-[3rem]">답안 표기란</div>
             <div className="flex flex-col h-[77vh] overflow-y-auto">
                 {questions.map((question, index) => (
-                    <div key={index} className={'flex w-full h-[30px]'}>
-                        <div className={`bg-gray-500 min-w-[3rem]`}></div>
-                        <div className={`bg-gray-400 min-w-[3rem] pl-2.5`}>{index + 1}</div>
-                        <CbtAnswer question={question} />
-                    </div>
+                    <React.Fragment key={index}>
+                        <div className={'flex w-full h-[30px] mb-0.5 items-center'}>
+                            <div className={`bg-gray-500 min-w-[3rem]`}></div>
+                            <div className={`bg-gray-400 min-w-[3rem] pl-2.5`}>{index + 1}</div>
+                            <CbtAnswer question={question}/>
+                        </div>
+                        {(index + 1) % 5 === 0 && (index + 1) !== questions.length &&
+                            <div className={'my-2 border-t border-gray-300 border-dotted'}></div>
+                        }
+                    </React.Fragment>
                 ))}
             </div>
             <div className={'h-[8vh] bg-emerald-300 flex justify-center pt-2 px-2'}>
                 <button type={'button'} className="btn w-[10rem] text-[18px]" onClick={handleSubmitResult}>
-                    <ArrowUpOnSquareIcon className="w-6 h-6" />
+                <ArrowUpOnSquareIcon className="w-6 h-6" />
                     답안제출
                 </button>
             </div>
