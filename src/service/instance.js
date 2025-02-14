@@ -1,11 +1,16 @@
 import axios, {AxiosError} from "axios";
 
-const BASE_URL = import.meta.env.VITE_SERVER_HOST;
+const BASE_URL_ADMIN = import.meta.env.VITE_SERVER_HOST_ADMIN;
+const BASE_URL_EXAM = import.meta.env.VITE_SERVER_HOST_EXAM;
 
 export const api = axios.create({
-    baseURL: BASE_URL,
+    baseURL: BASE_URL_ADMIN,
     // withCredentials: true
 });
+
+export const examApi = axios.create({
+    baseURL: BASE_URL_EXAM,
+})
 
 // api.interceptors.request.use((config) => {
 //         const token = localStorage.getItem('accessToken');
