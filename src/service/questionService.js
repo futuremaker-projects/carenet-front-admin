@@ -22,7 +22,7 @@ const getQuestionsByExamId = async (pageable, data) => {
 
 const getTotalQuestionsByExamId = async (data) => {
     return apiRequest(() =>
-        api.post(`/questions/${data.examId}/total`, data));
+        api.post(`/exams/${data.examId}/questions/total`, data));
 }
 
 const getQuestion = async (data) => {
