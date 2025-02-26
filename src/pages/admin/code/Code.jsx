@@ -1,14 +1,17 @@
 import React from 'react';
-import PropTypes from "prop-types";
-import TitleCard from "../../../components/cards/TitleCard.jsx";
+import PrimeCodeInput from "./CodeInput.jsx";
+import CodeList from "./CodeList.jsx";
 
-const Code = ({title, children}) => {
+const Code = () => {
 
     return (
-        <div className={"card sw-full p-6 bg-base-100 shadow-xl mt-2"}>
-            {/** Card Body */}
-            <div className='h-full w-full pb-6 bg-base-100'>
-                {children}
+        <div className={"sw-full h-full p-6 bg-base-100 shadow-xl"}>
+            <div className={"h-full flex gap-4"}>
+                <div className={"w-[20rem] border border-black h-full"}>
+                    <PrimeCodeInput />
+                    <CodeList />
+                </div>
+                <div className={"flex-1 border border-black"}></div>
             </div>
         </div>
     );
@@ -16,7 +19,7 @@ const Code = ({title, children}) => {
 
 export default Code;
 
-Code.propTypes = {
-    title: PropTypes.string,
-    children: PropTypes.element,
-}
+// Code.propTypes = {
+//     title: PropTypes.string,
+//     children: PropTypes.element,
+// }
