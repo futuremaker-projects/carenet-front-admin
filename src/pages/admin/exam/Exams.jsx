@@ -11,6 +11,7 @@ import {useNavigate} from "react-router-dom";
 import {initSlicePageable} from "../../../service/Utils.js";
 import {useTranslation} from "react-i18next";
 import {getProgressTag} from "../../../dummy/dummy.jsx";
+import {toast} from "sonner";
 
 /**
  * 모의고사 목록페이지
@@ -48,27 +49,39 @@ const Exams = () => {
 
     const handleCallExams = async () => {
         const response = await getExams(pageable, search);
+        if (!response) {
+            toast.error("모의고사 목록을 불러오지 못했습니다.");
+        }
+        const isLast = response?.last ?? true;
+        const content = response?.content ?? [];
+
         setPageable((prev) => ({
             ...prev,
-            page: response.last ? prev.page : prev.page + 1,
-            last: response.last
+            page: isLast ? prev.page : prev.page + 1,
+            last: isLast
         }));
-        setExams(prev => [...prev, ...response.content]);
+        setExams(prev => [...prev, ...content]);
     }
 
     const handleGetTotal = useCallback(async () => {
         const totalCount = await getTotalExamCount(search);
-        setCount(parseInt(totalCount));
+        setCount(parseInt(totalCount ?? 0, 10));
     }, [refresh]);
 
     const handleCallRefresh = async () => {
         const response = await getExams(initSlicePageable, search);
+        if (!response) {
+            toast.error("모의고사 목록을 불러오지 못했습니다.");
+        }
+        const isLast = response?.last ?? true;
+        const content = response?.content ?? [];
+
         setPageable({
             ...initSlicePageable,
             page: 1,
-            last: response.last
+            last: isLast
         });
-        setExams([...response.content]);
+        setExams([...content]);
 
         // 새로운 컨텐츠가 등록되었을 때 스크롤을 최상단으로 이동
         if (scrollContainerRef.current) {
@@ -108,13 +121,15 @@ const Exams = () => {
                             <tr key={index}>
                                 <td>{count && count - index}</td>
                                 <td onClick={() => moveTo(item.id)}>
-                                    <div className={`cursor-pointer`}>{item.name}</div>
+                                    <div className={`cursor-pointer`}>{item?.name ?? '-'}</div>
                                 </td>
                                 <td>
-                                    {getProgressTag(item.progressType, t(`progressType.${item.progressType}`))}
+                                    {item?.progressType
+                                        ? getProgressTag(item.progressType, t(`progressType.${item.progressType}`))
+                                        : '-'}
                                 </td>
-                                <td>{item.createUser.username}</td>
-                                <td>{item.createdAt}</td>
+                                <td>{item?.createUser?.username ?? '-'}</td>
+                                <td>{item?.createdAt ?? '-'}</td>
                                 <td>
                                     <button className="btn btn-xs btn-square btn-ghost"
                                             onClick={() => updateExam(item.id, index)}>
